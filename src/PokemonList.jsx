@@ -4,6 +4,7 @@ import { Pokedex } from 'pokeapi-js-wrapper';
 function PokemonList(props) {
     const { pokedexName } = props;
     const [pokemon, setPokemon] = useState([]);
+    const [hasError, setErrors] = useState(null);
 
     useEffect(function () {
         async function fetchData() {
@@ -17,13 +18,16 @@ function PokemonList(props) {
             }
             catch (error) {
                 // TODO
-                //setErrors(error)
-                throw error;
+                setErrors(error)
+                
             }
         }
         fetchData();
+        
     }, [pokedexName]);
-
+    if (hasError !== null) {
+        return <p>An error has occurred.</p>
+    }
     function renderPokemon() {
         return pokemon.map((pokemonName) => {
             return <li key={pokedexName}>{pokemonName} <button>View Details</button></li>
