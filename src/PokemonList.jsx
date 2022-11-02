@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Pokedex } from 'pokeapi-js-wrapper';
 
 function PokemonList(props) {
-    const { pokedexName } = props;
+    const { pokedexName,selectPokemon } = props;
     const [pokemon, setPokemon] = useState([]);
     const [hasError, setErrors] = useState(null);
 
@@ -30,7 +30,7 @@ function PokemonList(props) {
     }
     function renderPokemon() {
         return pokemon.map((pokemonName) => {
-            return <li key={pokedexName}>{pokemonName} <button>View Details</button></li>
+            return <li key={pokedexName}>{pokemonName} <button onClick = {() => selectPokemon (pokemonName)}>View Details</button></li>
         });
     }
 
