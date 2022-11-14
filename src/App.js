@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PokedexList from "./PokedexList";
 import PokemonList from "./PokemonList";
-
+import PokemonDetails from "./pokemonDetails";
 function App() {
   const [selectedPokedex, setSelectedPokedex] = useState(null);
   const [pokemon, setPokemon] = useState(null);
@@ -26,7 +26,8 @@ function App() {
 
   return (
     <div className="App">
-      {pokemon} 
+      <PokemonDetails pokemonName={pokemon} />
+
     </div>
   );
 }
