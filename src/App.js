@@ -6,6 +6,7 @@ function App() {
   const [selectedPokedex, setSelectedPokedex] = useState(null);
   const [pokemon, setPokemon] = useState(null);
 
+
   function onSelectPokedex(newPokedex) {
     setSelectedPokedex(newPokedex);
 
@@ -15,17 +16,33 @@ function App() {
     setPokemon(newPokemon);
 
   }
+  
+  function onHome() {
+    onSelectPokedex(null);
+    onPokemon(null);
+  }
+
+  function renderButtons(){
+    return <div>
+      <button onClick={onHome}>Home</button>
+      {/* placeholder for req. 10 */}
+    </div>
+  }
 
   if (selectedPokedex === null) {
     return <PokedexList selectPokedex={onSelectPokedex} />;
   }
 
   if (pokemon === null) {
-    return <PokemonList pokedexName={selectedPokedex} selectPokemon = {onPokemon} />;
+    return <div> 
+      {renderButtons()}
+      <PokemonList pokedexName={selectedPokedex} selectPokemon = {onPokemon} />
+      </div>;
   }
 
   return (
     <div className="App">
+      {renderButtons()}
       <PokemonDetails pokemonName={pokemon} />
 
     </div>
