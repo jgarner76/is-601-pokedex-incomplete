@@ -22,9 +22,20 @@ function App() {
     onPokemon(null);
   }
 
+  function onBack() {
+    if (pokemon !== null){
+      onPokemon(null);
+    }
+    else if (selectedPokedex !== null){
+      onSelectPokedex(null);
+    }
+  }
+
+
   function renderButtons(){
     return <div>
       <button onClick={onHome}>Home</button>
+      <button onClick={onBack}>Back</button>
       {/* placeholder for req. 10 */}
     </div>
   }
