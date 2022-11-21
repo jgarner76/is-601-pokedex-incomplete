@@ -30,7 +30,7 @@ function PokemonList(props) {
     }
     function renderPokemon() {
         return pokemon.map((pokemonName) => {
-            return <li key={pokedexName}>{pokemonName} <button onClick = {() => selectPokemon (pokemonName)}>View Details</button></li>
+            return <li key={pokemonName}>{pokemonName} <button onClick = {() => selectPokemon (pokemonName)}>View Details</button></li>
         });
     }
 
