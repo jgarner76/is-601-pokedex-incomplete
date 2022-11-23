@@ -51,7 +51,7 @@ function PokemonDetails(props) {
         }
         return <div>
             <h2>{pokemonDetail.name}</h2>
-            <img src={pokemonDetail.sprites.front_default} />
+            <img src={pokemonDetail.sprites.front_default} alt={pokemonDetail.name+" Sprite"} />
             <h3>Abilities</h3>
             <ul>{renderAbilities()}</ul>
             <h3>Types</h3>
